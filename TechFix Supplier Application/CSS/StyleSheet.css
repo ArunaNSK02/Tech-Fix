@@ -1,0 +1,236 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --color_one: hsl(208, 67%, 9%);
+    --color_two: hsl(360, 100%, 63%);
+    --color_three: hsl(209, 65%, 16%);
+    --color_four: hsl(150, 33%, 99%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body {
+    background-color: var(--color_one);
+    font-family: "Noto Sans", serif;
+    color: var(--color_four);
+    overflow-x: hidden;
+    position: relative;
+    padding-block-end: 20px;
+}
+
+.nav-bar {
+    height: 8vw;
+    background-color: var(--color_one);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    padding-inline: 20px;
+}
+
+img {
+    width: 250px;
+    height: auto;
+}
+
+.logout-btn {
+    border: 2px solid var(--color_four);
+    background-color: transparent;
+    padding: 10px;
+    color: var(--color_four);
+    cursor: pointer;
+}
+
+.user-profile {
+    background-color: transparent;
+    padding: 10px;
+    color: var(--color_four);
+}
+
+.nav-bar a {
+    cursor: pointer;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color_four);
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.conatiner {
+    max-width: 100%;
+    height: 80%;
+}
+
+.menu-container {
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Defines exactly 4 equal columns */
+    gap: 20px; /* Space between items */
+    max-width: 90%; /* Limits overall width */
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto; /* Allows scroll within the container if needed */
+}
+
+.menu-item {
+    border: none;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    height: 500px; /* Set a reasonable height */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.product-img {
+    width: 100%;
+    height: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.menu-item span {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-block: 10px;
+}
+
+.sub-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-block: 10px;
+}
+
+.price {
+    font-size: 20px;
+    margin-block: 10px;
+    font-weight: bold;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-txtbox {
+    background-color: transparent;
+    color: var(--color_four);
+    width: 350px;
+    padding: 10px;
+    border: 2px solid var(--color_four);
+    margin-inline: 5px;
+    margin-block-start: 40px;
+    margin-block-end: 30px;
+}
+
+.custom-btn {
+    border: 2px solid var(--color_four);
+    background-color: var(--color_one);
+    padding: 10px;
+    color: var(--color_four);
+    margin-inline: 5px;
+    margin-block-start: 30px;
+    cursor: pointer;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--color_one);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--color_four);
+}
+
+.styled-table {
+    margin-block: 50px;
+    margin-inline: auto;
+    border-collapse: collapse;
+    min-width: 400px;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+    .styled-table thead tr {
+        background-color: var(--color_four);
+        color: var(--color_one);
+        text-align: center;
+        font-weight: normal;
+        border-bottom: 4px solid var(--color_four);
+        border-top: 8px solid var(--color_four);
+    }
+
+    .styled-table th, .styled-table td {
+        padding: 12px 15px;
+        font-weight: 400;
+    }
+
+    .styled-table tbody tr {
+        border-bottom: 1px solid var(--color_four);
+        font-style: italic;
+    }
+
+        .styled-table tbody tr:last-of-type {
+            border-bottom: 2px solid var(--color_four);
+        }
+
+form {
+    position: relative;
+}
+
+.view-cart {
+    z-index: 3;
+    position: fixed;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    bottom: 20px;
+    right: 20px;
+}
+
+    .view-cart .custom-btn {
+        border: 2px solid var(--color_four);
+        background-color: var(--color_four);
+        padding: 10px;
+        color: var(--color_one);
+        margin-inline: 0;
+        margin-block-start: 0;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+i {
+    margin-inline: 5px;
+    cursor: pointer;
+}
+
+.link-buttons {
+    text-decoration: none;
+    color: white;
+    margin-inline: 5px;
+}

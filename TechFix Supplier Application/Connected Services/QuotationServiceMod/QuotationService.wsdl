@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="InsertQuotation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filePath" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="supplierId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertQuotationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertQuotationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllQuotations">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllQuotationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllQuotationsResult" type="tns:ArrayOfQuotation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfQuotation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Quotation" nillable="true" type="tns:Quotation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Quotation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="QuotationID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SupplierID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SupplierResponse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SupplierName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllQuotationsBySupplier">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="supplierID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllQuotationsBySupplierResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllQuotationsBySupplierResult" type="tns:ArrayOfQuotation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InsertQuotationSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertQuotation" />
+  </wsdl:message>
+  <wsdl:message name="InsertQuotationSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertQuotationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllQuotationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllQuotations" />
+  </wsdl:message>
+  <wsdl:message name="GetAllQuotationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllQuotationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllQuotationsBySupplierSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllQuotationsBySupplier" />
+  </wsdl:message>
+  <wsdl:message name="GetAllQuotationsBySupplierSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllQuotationsBySupplierResponse" />
+  </wsdl:message>
+  <wsdl:portType name="QuotationServiceSoap">
+    <wsdl:operation name="InsertQuotation">
+      <wsdl:input message="tns:InsertQuotationSoapIn" />
+      <wsdl:output message="tns:InsertQuotationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllQuotations">
+      <wsdl:input message="tns:GetAllQuotationsSoapIn" />
+      <wsdl:output message="tns:GetAllQuotationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllQuotationsBySupplier">
+      <wsdl:input message="tns:GetAllQuotationsBySupplierSoapIn" />
+      <wsdl:output message="tns:GetAllQuotationsBySupplierSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="QuotationServiceSoap" type="tns:QuotationServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertQuotation">
+      <soap:operation soapAction="http://tempuri.org/InsertQuotation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllQuotations">
+      <soap:operation soapAction="http://tempuri.org/GetAllQuotations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllQuotationsBySupplier">
+      <soap:operation soapAction="http://tempuri.org/GetAllQuotationsBySupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="QuotationServiceSoap12" type="tns:QuotationServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertQuotation">
+      <soap12:operation soapAction="http://tempuri.org/InsertQuotation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllQuotations">
+      <soap12:operation soapAction="http://tempuri.org/GetAllQuotations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllQuotationsBySupplier">
+      <soap12:operation soapAction="http://tempuri.org/GetAllQuotationsBySupplier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QuotationService">
+    <wsdl:port name="QuotationServiceSoap" binding="tns:QuotationServiceSoap">
+      <soap:address location="https://localhost:44367/QuotationService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="QuotationServiceSoap12" binding="tns:QuotationServiceSoap12">
+      <soap12:address location="https://localhost:44367/QuotationService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:portType name="QuotationServiceSoap" />
+  <wsdl:portType name="QuotationServiceSoap12" />
+  <wsdl:binding name="QuotationServiceSoap" type="tns:QuotationServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+  </wsdl:binding>
+  <wsdl:binding name="QuotationServiceSoap12" type="tns:QuotationServiceSoap12">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+  </wsdl:binding>
+  <wsdl:service name="QuotationService">
+    <wsdl:port name="QuotationServiceSoap" binding="tns:QuotationServiceSoap">
+      <soap:address location="https://localhost:44367/QuotationService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="QuotationServiceSoap12" binding="tns:QuotationServiceSoap12">
+      <soap12:address location="https://localhost:44367/QuotationService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

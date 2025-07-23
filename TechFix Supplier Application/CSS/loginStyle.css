@@ -1,0 +1,81 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --color_one: hsl(208, 67%, 9%);
+    --color_two: hsl(360, 100%, 63%);
+    --color_three: hsl(209, 65%, 16%);
+    --color_four: hsl(150, 33%, 99%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color:var(--color_one);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.container {
+    width: 40%;
+    height: 70%;
+    background-color: var(--color_one);
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+img {
+    margin-block-start: 60px;
+    width: 300px;
+    height: auto;
+    display: block;
+    margin-inline: auto;
+}
+
+form {
+    margin-block-start: 30px;
+    padding: 10px;
+    font-family: "Noto Sans", serif;
+}
+
+.custom-txtbox {
+    background-color: transparent;
+    color: var(--color_four);
+    width: 350px;
+    padding: 10px;
+    border: 2px solid var(--color_four);
+    display: block;
+    margin-inline: auto;
+    margin-block-end: 15px;
+}
+
+.custom-btn {
+    border: 2px solid var(--color_four);
+    background-color: transparent;
+    padding: 10px;
+    color: var(--color_four);
+    display: block;
+    margin-inline: auto;
+    margin-block-start: 30px;
+    cursor: pointer;
+}
+
+.error-msg {
+    color: var(--color_two);
+    display: block;
+    margin-inline: auto;
+    width: fit-content;
+    font-family: "Noto Sans", serif;
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+
+
+
